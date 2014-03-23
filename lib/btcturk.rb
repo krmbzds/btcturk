@@ -18,7 +18,7 @@ module BTCTurk
     fetch 'trades'
   end
 
-  def self.get_trade(id)
+  def self.trades_since(id)
     fetch "trades?sinceid=#{id}"
 
   end
