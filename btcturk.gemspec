@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Kerem Bozdas']
   spec.email         = ['krmbzds.github@gmail.com']
   spec.summary       = %q{A simple ruby library to interface with BTCTurk API.}
-  spec.description   = %q{Also includes an executable for easy commandline access.}
+  spec.description   = %q{A simple ruby library to interface with BTCTurk API.}
   spec.homepage      = 'https://github.com/krmbzds/btcturk'
   spec.license       = 'MIT'
 
