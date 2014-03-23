@@ -1,3 +1,4 @@
+require 'json'
 require 'open-uri'
 require 'btcturk/version'
 
@@ -23,7 +24,7 @@ module BTCTurk
   end
 
   def self.fetch(request)
-    open(BASE_URL + request).read
+    JSON.parse(open(BASE_URL + request).read)
   end
 
 end
