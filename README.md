@@ -1,4 +1,4 @@
-# BTCTurk
+# BTCTurk [![Gem Version](https://badge.fury.io/rb/btcturk.png)](http://badge.fury.io/rb/btcturk)
 
 A simple ruby library to interface with BTCTurk API.
 
