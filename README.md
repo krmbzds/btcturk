@@ -44,26 +44,33 @@ BTCTurk::ticker
 ```
 
 #### List all open orders:
-
-    BTCTurk::orderbook
+```rb
+BTCTurk::orderbook
+```
 
 #### List all trades:
-
-    BTCTurk::trades
+```rb
+BTCTurk::trades
+```
 
 #### List all trades after a specific trade-id:
 ```rb
 BTCTurk::trades_since('532ded923ab47520bc5841d9')
+```
 
-=> [{"date"=>1395518866.0,
-  "tid"=>"532ded923ab47520bc5841da",
-  "price"=>1255.98,
-  "amount"=>0.15},
-        …
- {"date"=>1395542633.0,
-  "tid"=>"532e4a693ab47520bc5841e1",
-  "price"=>1275.0,
-  "amount"=>0.31497106}]
+#### See your balance:
+```rb
+BTCTurk::balance
+```
+
+#### See your open orders:
+```rb
+BTCTurk::orders
+```
+
+#### See your transaction history:
+```rb
+BTCTurk::orders
 ```
 
 ## Contributing
