@@ -70,7 +70,7 @@ BTCTurk::orders
 
 #### See your transaction history:
 ```rb
-BTCTurk::orders
+BTCTurk::transactions
 ```
 
 ## Contributing
