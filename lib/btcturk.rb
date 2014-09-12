@@ -34,7 +34,6 @@ module BTCTurk
     get 'openOrders'
   end
 
-  # Check lines [61-64]
   def self.transactions(offset = '0', limit = '100', sort = 'desc')
     post 'userTransactions', offset, limit, sort
   end
@@ -57,11 +56,6 @@ module BTCTurk
     response = http.request(request)
     JSON.parse(response.body)
   end
-
-  # User Transactions do not work at the moment
-  # Not sure if it's my code or the API to blame
-  # I'll try to solve it ASAP. In the meanwhile,
-  # Please do not hesitate to send pull requests!
 
   def self.post(action, offset, limit, sort)
     @settings = get_config
@@ -89,7 +83,7 @@ module BTCTurk
     message = @settings[:api_key] + timestamp
     private_key = Base64.decode64(@settings[:private_key]).strip
     digest = OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), private_key, message)
-    Base64.encode64(digest).strip
+    Base64.encode64(digest).strip.gsub(/=+$/, '')
   end
 
   def self.set_config
