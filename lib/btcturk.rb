@@ -57,24 +57,8 @@ module BTCTurk
     JSON.parse(response.body)
   end
 
-  def self.post(action, params)
-    @settings = get_config
-    uri = URI.parse(BASE_URL + action)
-    timestamp = Time.now.to_i.to_s
-
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-
-    request = Net::HTTP::Post.new(uri.request_uri)
-
-    request.set_form_data(params)
-
-    request['X-PCK'] = @settings[:api_key]
-    request['X-Stamp'] = timestamp
-    request['X-Signature'] = get_signature(timestamp)
-
-    response = http.request(request)
-    response.body
+  def self.post
+    raise NotImplementedError
   end
 
   def self.get_signature(timestamp)
