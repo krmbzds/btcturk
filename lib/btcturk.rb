@@ -30,12 +30,12 @@ module BTCTurk
     get 'balance'
   end
 
-  def self.orders
-    get 'openOrders'
-  end
-
   def self.transactions
     raise NotImplementedError
+  end
+
+  def self.orders
+    get 'openOrders'
   end
 
   def self.get(action)
