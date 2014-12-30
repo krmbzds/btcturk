@@ -38,6 +38,18 @@ module BTCTurk
     get 'openOrders'
   end
 
+  def self.cancel
+    raise NotImplementedError
+  end
+
+  def self.buy
+    raise NotImplementedError
+  end
+
+  def self.sell
+    raise NotImplementedError
+  end
+
   def self.get(action)
     @settings = get_config
 
