@@ -34,9 +34,8 @@ module BTCTurk
     get 'openOrders'
   end
 
-  # Check lines [61-64]
-  def self.transactions(offset = '0', limit = '100', sort = 'desc')
-    post 'userTransactions', offset, limit, sort
+  def self.transactions
+    raise NotImplementedError
   end
 
   def self.get(action)
@@ -58,12 +57,7 @@ module BTCTurk
     JSON.parse(response.body)
   end
 
-  # User Transactions do not work at the moment
-  # Not sure if it's my code or the API to blame
-  # I'll try to solve it ASAP. In the meanwhile,
-  # Please do not hesitate to send pull requests!
-
-  def self.post(action, offset, limit, sort)
+  def self.post(action, params)
     @settings = get_config
     uri = URI.parse(BASE_URL + action)
     timestamp = Time.now.to_i.to_s
@@ -73,9 +67,7 @@ module BTCTurk
 
     request = Net::HTTP::Post.new(uri.request_uri)
 
-    request.set_form_data({'offset' => offset, 'limit' => limit, 'sort' => sort})
-    # request.set_body_internal({'offset' => offset, 'limit' => limit, 'sort' => sort})
-    # request.body = 'offset=0&limit=100&sort=desc'
+    request.set_form_data(params)
 
     request['X-PCK'] = @settings[:api_key]
     request['X-Stamp'] = timestamp
